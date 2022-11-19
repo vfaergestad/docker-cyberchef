@@ -1,7 +1,7 @@
 image: docker:latest
 
-variables:
-    name: docker:dind
+services:
+  - name: docker:dind
     alias: docker
 
 stages:
