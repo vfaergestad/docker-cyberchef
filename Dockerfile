@@ -4,8 +4,8 @@ RUN chown -R node:node /srv
 
 USER node
 WORKDIR /srv
-RUN git clone https://github.com/gchq/CyberChef.git
-RUN cd CyberChef
+RUN git clone --depth=1 https://github.com/gchq/CyberChef.git
+# RUN cd CyberChef
 RUN npm install
 
 ENV NODE_OPTIONS="--max_old_space_size=2048"
