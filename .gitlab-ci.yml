@@ -11,7 +11,7 @@ stages:
     - build
 
 before_script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - 
 
 build:
     stage: build
@@ -25,7 +25,11 @@ build:
             echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
           fi
         - docker build -t "$CI_REGISTRY_IMAGE${tag}" .
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
         - docker push "$CI_REGISTRY_IMAGE${tag}"
+        - docker logout
+        - docker login -u vfaergestad -p DOCKER_HUB_TOKEN 
+        - docker push "vfaergestad/cyberchef:$tag"
     rules:
     - if: $CI_COMMIT_BRANCH
       exists:
