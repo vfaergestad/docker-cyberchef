@@ -9,10 +9,7 @@ services:
 
 stages:
     - build
-
-before_script:
-    - 
-
+    
 build:
     stage: build
     script:
