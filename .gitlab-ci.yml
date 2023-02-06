@@ -26,7 +26,7 @@ build:
             tag=":$CI_COMMIT_REF_SLUG"
             echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
           fi
-        - docker build -t "$CI_REGISTRY_IMAGE${tag}" -t "$DOCKER_HUB_REGISTRY${tag}".
+        - docker build -t "$CI_REGISTRY_IMAGE${tag}" -t "$DOCKER_HUB_REGISTRY${tag}" .
         - docker push "$CI_REGISTRY_IMAGE${tag}"
         - docker push "$DOCKER_HUB_REGISTRY${tag}"
 
