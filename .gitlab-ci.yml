@@ -12,6 +12,7 @@ stages:
     - build
 
 before_script:
+    - unset DOCKER_HOST
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker login -u vfaergestad -p $DOCKER_HUB_TOKEN 
 
