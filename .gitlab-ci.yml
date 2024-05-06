@@ -19,6 +19,7 @@ before_script:
 build:
     stage: build
     script:
+        - unset DOCKER_HOST
         - |
           if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
             tag=""
